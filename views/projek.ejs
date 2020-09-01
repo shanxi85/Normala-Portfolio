@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<%- include('partials/meta') %>
+<%- include('partials/linkcss') %>
+
+</head>
+
+
+<body id="page-top">
+<%- include('partials/navbar') %>
+
+<section class="gap100">
+  <div class="container">
+    <div class="row">
+      <% for(var x=0; x < projek.length; x++ ){ %>
+      <div class="col-sm-6 col-md-4 col-lg-3 mt-4">
+          <div class="card" style="width: 15rem;">
+            <img src="<%- projek[x].logo %>" class="card-img-top" alt="..." width="30" height="30">
+            <div class="card-body">
+              <h5 class="card-title"><%- projek[x].company %></h5>
+              <p class="card-text"><%- projek[x].description %></p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><span class="text-uppercase font-weight-bold"><%- projek[x].tech %></span></li>
+              <li class="list-group-item"><span class="text-uppercase font-weight-bold"><%- projek[x].category %></span></li>
+            </ul>
+          </div>
+          <% } %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
+
+</body>
+
+</html>
