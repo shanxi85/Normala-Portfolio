@@ -44,6 +44,13 @@ company: 'Mini Project',
 description: 'Chat Application',
 tech: 'Android Application',
 category: 'Android'
+},
+{
+logo: 'https://i.ytimg.com/vi/-dSeD-hLNZQ/hqdefault.jpg',
+company: 'Mini Project',
+description: 'Chat Application',
+tech: 'Android Application',
+category: 'Android'
 }
 
 ]
