@@ -76,12 +76,6 @@ input[type=email], input[type=password] {
 /* Set a style for all buttons */
 button {
   background-color: #4CAF50;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
 }
 
 /* Add a hover effect for buttons */
@@ -128,4 +122,13 @@ span.psw {
   .cancelbtn {
     width: 100%;
   }
+}
+
+.btn-new-project{
+  color: white;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  padding: 14px 20px;
+  width: 100%;
 }
