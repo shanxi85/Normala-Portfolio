@@ -1,15 +1,23 @@
 
-<section class="gap100">
-  <div class="card" style="width: 18rem;">
-    <img src="<%- logo %>" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title"><%- description %></h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
+
+<div class="container container-small">
+  <div class="row row-cols-1 row-cols-md-3">
+    <% for(var x=0; x < projek.length; x++ ){ %>
+        <div class="col mb-4">
+          <div class="card" style="width: 15rem">
+              <img class="card-img-top" src="<%= projek[x].logo %> ">
+              <div class="card-block padding text-center">
+                  <h4 class="card-title"><%= projek[x].company%></h4>
+                  <div class="card-text">
+                      <p><%= projek[x].description%></p>
+                      <p style="font-size: small;"><b><%= projek[x].tech%></b></p>
+                  </div>
+              </div>
+              <div class="card-footer text-center">
+                  <span class="text-muted"><%= projek[x].category%></span>
+              </div>
+          </div>
+      </div>
+    <% } %>
   </div>
-</section>
+</div>
