@@ -1,15 +1,85 @@
 
-<section class="gap100">
-  <div class="card" style="width: 18rem;">
-    <img src="<%- logo %>" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title"><%- description %></h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+
+
+<div class="container container-small">
+  <div class="row row-cols-1 row-cols-md-3">
+    <% for(var x=0; x < projek.length; x++ ){ %>
+        <div class="col mb-4">
+          <div class="card" style="width: 15rem">
+              <img class="card-img-top" src="<%= projek[x].logo %> ">
+              <div class="card-block padding text-center">
+                  <h4 class="card-title"><%= projek[x].company%></h4>
+                  <p><%= projek[x].description%></p>
+                  </div>
+                  <div class="card text-center">
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><span class="text-uppercase font-weight-bold"><%= projek[x].tech%></span></li>
+                      <li class="list-group-item"><span class="text-uppercase font-weight-bold"><%= projek[x].category%></span></li>
+                      <li class="list-group-item"></li>
+                        <button type="button" class="btn btn-outline-info">Edit</button>
+                        <button type="button" class="btn btn-outline-danger">Delete</button>
+                    </ul>
+              </div>
+          </div>
+      </div>
+    <% } %>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add New Projects</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label>Image URL</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Company</label>
+            <input type="text" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Description</label>
+            <input type="text" class="form-control">
+            <<textarea class="form-control"</textarea>
+          </div>
+          <div class="form-group">
+            <label>Technology</label>
+            <input type="text" class="form-control">
+            <select multiple class="form-control">
+               <option>Android Application</option>
+               <option>Power BI</option>
+               <option>Tableau</option>
+               <option>Python</option>
+               <option>Artificial Intelligent</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select class="form-control">
+               <option>Android</option>
+               <option>Fullstack</option>
+               <option>Business Intelligent</option>
+               <option>Data Modelling</option>
+               <option>Artificial Intelligent</option>
+            </select>
+          </div>
+
+
+      </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
     </div>
-    <ul class="list-group list-group-flush">
-      <li class="list-group-item">Cras justo odio</li>
-      <li class="list-group-item">Dapibus ac facilisis in</li>
-      <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
   </div>
-</section>
+</div>
