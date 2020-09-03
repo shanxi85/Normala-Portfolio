@@ -10,13 +10,15 @@
 
 
 <body id="page-top">
-<%- include('partials/navbar') %>
+  <div class="container">
+    <%- include('partials/navbar', {session: session}) %>
 
-<div class="container">
-  <div class="d-flex justify-content-end">
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">New Project</button>
+    <% if (session.isLoggedIn == true) { %>
+      <div class="d-flex justify-content-end">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">New Project</button>
+      </div>
+    <% } %>
   </div>
-</div>
 
 <%- include('partials/card') %>
 <%- include('partials/footer') %>

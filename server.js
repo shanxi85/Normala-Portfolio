@@ -2,17 +2,29 @@
 var express = require('express');
 var app = express();
 
+const session = require('express-session');
+
+app.use(session({
+  secret: 'secret',
+  saveUninitialized: true,
+  resave: true
+}));
+
 app.set('view engine', 'ejs');
 
 app.use(express.static(__dirname + '/public'));
 
 app.get('/', (req, res)=>{
-  res.render('home');
+  res.render('home', {
+    session: req.session,
+  });
 
 });
 
 app.get('/about', (req, res)=>{
-  res.render('about');
+  res.render('about',{
+    session: req.session,
+  });
 });
 
 const projectlist = [
@@ -90,7 +102,10 @@ category: 'Artificial Intelligent'
 ]
 
 app.get('/projek', (req, res)=>{
-  res.render('projek', { projek: projectlist })
+  console.log(req.session);
+  res.render('projek', {
+    session: req.session,
+    projek: projectlist })
 
 });
 
@@ -98,11 +113,23 @@ app.get('/about', (req, res)=>{
   res.render('about');
 });
 
-
+//admin
 app.get('/admin/login', (req, res)=>{
   res.render('admin/login');
 });
 
+//temporary
+app.get('/admin/user/logged-in', (req, res)=>{
+   req.session.isLoggedIn =true
+   res.redirect('/')
+});
+
+//logout
+app.get('/admin/user/logged-out', (req, res)=>{
+  console.log(req)
+   req.session.isLoggedIn =false
+   res.redirect('/')
+});
 
 app.listen(8080);
 console.log('8080 is the magic port');

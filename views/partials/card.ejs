@@ -8,23 +8,27 @@
         <div class="col mb-4">
           <div class="card" style="width: 15rem">
               <img class="card-img-top" src="<%= projek[x].logo %> ">
-              <div class="card-block padding text-center">
-                  <h4 class="card-title"><%= projek[x].company%></h4>
-                  <p><%= projek[x].description%></p>
-                  </div>
-                  <div class="card text-center">
+                <div class="card-block padding text-center">
+                    <h4 class="card-title"><%= projek[x].company%></h4>
+                    <p><%= projek[x].description%></p>
+                </div>
+                <div class="card text-center">
                     <ul class="list-group list-group-flush">
                       <li class="list-group-item"><span class="text-uppercase font-weight-bold"><%= projek[x].tech%></span></li>
                       <li class="list-group-item"><span class="text-uppercase font-weight-bold"><%= projek[x].category%></span></li>
-                      <li class="list-group-item"></li>
-                        <button type="button" class="btn btn-outline-info">Edit</button>
-                        <button type="button" class="btn btn-outline-danger">Delete</button>
+                      <% if (session.isLoggedIn == true) { %>
+                        <li class="list-group-item">
+                          <button type="button" class="btn btn-outline-info">Edit</button>
+                          <button type="button" class="btn btn-outline-danger">Delete</button>
+                        </li>
+                      <% } %>
                     </ul>
-              </div>
+                </div>
           </div>
       </div>
     <% } %>
 </div>
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
